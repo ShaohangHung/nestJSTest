@@ -1,0 +1,16 @@
+{
+  "code": 0,
+  "msg": "",
+  "payload": [
+    {
+      "id": 1,
+      "title": "ad title",
+      "content": "ad content"
+    },
+    {
+      "id": 2,
+      "title": "ad title2",
+      "content": "ad content2"
+    }
+  ]
+}
