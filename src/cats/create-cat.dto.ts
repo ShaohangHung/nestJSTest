@@ -1,12 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateCatDto {
-  @ApiProperty()
+  @ApiProperty({ example: `Puppy` })
   name: string;
 
-  @ApiProperty()
+  @ApiProperty({ example: 3 })
   age: number;
 
-  @ApiProperty()
+  @ApiProperty({ example: `brown` })
   breed: string;
 }

@@ -9,7 +9,7 @@ async function bootstrap() {
   setupSwagger(app);
   const configService = app.get(ConfigService);
   const appEnv = configService.get('APP_ENV');
-  console.log(appEnv);
+  console.log(`appEnv=${appEnv}`);
   await app.listen(3000);
 }
 function setupSwagger(app: INestApplication) {
