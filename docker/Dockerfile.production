@@ -4,15 +4,19 @@ RUN apk update && apk add tzdata
 ENV TZ=Asia/Hong_Kong
 
 RUN apk --no-cache add git
+
 WORKDIR /usr/src/app
 
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 
 COPY . .
 
-ENV NODE_ENV=development
+RUN npm run build \
+  && npm prune --production
+
+ENV NODE_ENV=production
+
+CMD ["node", "dist/main.js"]
 
 EXPOSE 3000
-
-CMD ["npm", "run", "start:dev"]
