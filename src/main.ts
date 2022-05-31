@@ -1,11 +1,15 @@
 import { INestApplication } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { ConfigService } from '@nestjs/config';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   setupSwagger(app);
+  const configService = app.get(ConfigService);
+  const appEnv = configService.get('APP_ENV');
+  console.log(appEnv);
   await app.listen(3000);
 }
 function setupSwagger(app: INestApplication) {
