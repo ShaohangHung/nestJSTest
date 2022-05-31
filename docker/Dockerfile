@@ -7,12 +7,15 @@ RUN apk --no-cache add git
 WORKDIR /usr/src/app
 
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 
 COPY . .
 
-ENV NODE_ENV=development
+COPY --chown=node:node . .
+RUN npm run build
+
+ENV NODE_ENV=staging
+
+CMD ["node", "dist/main.js"]
 
 EXPOSE 3000
-
-CMD ["npm", "run", "start:dev"]
