@@ -5,8 +5,26 @@ export class UploadOneFileDto {
     description: 'Attachments',
     format: 'binary',
   })
-  file: string;
+  file: string[];
 
   @ApiProperty({})
-  name: string;
+  fileName: string;
+}
+
+export class UploadMultiFileDto {
+  @ApiProperty({
+    description: 'Attachments',
+    type: 'array',
+    items: {
+      type: 'file',
+      items: {
+        type: 'string',
+        format: 'binary',
+      },
+    },
+  })
+  files: any[];
+
+  @ApiProperty({})
+  tag: string;
 }
