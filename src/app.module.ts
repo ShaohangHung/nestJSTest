@@ -8,8 +8,6 @@ import { ProducerService } from './rabbit-mq/producer.service';
 import { ConfigModule } from './config/config.module';
 import { UploadFileController } from './upload-file/upload-file.controller';
 import { UploadFileService } from './upload-file/upload-file.service';
-import { FacebookMessengerController } from './facebook-messenger/facebook-messenger.controller';
-import { FacebookMessengerService } from './facebook-messenger/facebook-messenger.service';
 import { WebhookController } from './webhook/webhook.controller';
 import { FacebookService } from './facebook/facebook.service';
 import { WhatsappService } from './whatsapp/whatsapp.service';
@@ -22,7 +20,6 @@ import { HttpModule } from '@nestjs/axios';
     CatsController,
     RabbitMqController,
     UploadFileController,
-    FacebookMessengerController,
     WebhookController,
   ],
   providers: [
@@ -30,7 +27,6 @@ import { HttpModule } from '@nestjs/axios';
     CatsService,
     ProducerService,
     UploadFileService,
-    FacebookMessengerService,
     FacebookService,
     WhatsappService,
   ],
