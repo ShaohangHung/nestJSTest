@@ -13,6 +13,8 @@ import { FacebookService } from './facebook/facebook.service';
 import { WhatsappService } from './whatsapp/whatsapp.service';
 import { HttpModule } from '@nestjs/axios';
 import { LoggerMiddleware } from './middlewares/logger.middleware';
+import { XlsxService } from './xlsx/xlsx.service';
+import { XlsxController } from './xlsx/xlsx.controller';
 
 class MessageBox {
   message: string;
@@ -28,6 +30,7 @@ class MessageBox {
     RabbitMqController,
     UploadFileController,
     WebhookController,
+    XlsxController,
   ],
   providers: [
     AppService,
@@ -53,6 +56,7 @@ class MessageBox {
       provide: 'SAME_AS_MESSAGE_BOX',
       useExisting: 'MESSAGE_BOX',
     },
+    XlsxService,
   ],
 })
 export class AppModule implements NestModule {
