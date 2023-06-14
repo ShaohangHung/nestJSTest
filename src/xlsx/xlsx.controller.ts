@@ -10,7 +10,8 @@ export class XlsxController {
   @Header('Cache-Control', 'none')
   @Header('Cache-Control', 'application/json')
   async create(): Promise<any> {
-    await this.xlsxService.do20230520();
+    // await this.xlsxService.do20230520();
+    await this.xlsxService.do20230614();
     return { message: 'success' };
   }
 }
